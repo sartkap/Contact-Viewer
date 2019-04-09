@@ -45,7 +45,8 @@
             android:singleLine="true"
             android:text="friend name"
             android:textSize="20sp"
-            tools:ignore="HardcodedText,NewApi"/>
+            tools:ignore="HardcodedText,NewApi"
+             />
 
     </LinearLayout>
 

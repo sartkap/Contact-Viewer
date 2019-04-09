@@ -41,14 +41,14 @@ import lb.listviewvariants.utils.async_task_thread_pool.AsyncTaskThreadPool;
 
 
 public class MainActivity extends ActionBarActivity {
-    private LayoutInflater mInflater;
-    private PinnedHeaderListView mListView;
-    private ContactsAdapter mAdapter;
+    private LayoutInflater myInflater;
+    private PinnedHeaderListView myListView;
+    private ContactsAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mInflater = LayoutInflater.from(MainActivity.this);
+        myInflater = LayoutInflater.from(MainActivity.this);
         setContentView(R.layout.activity_main);
         final ArrayList<Contact> contacts = getContacts();
         Collections.sort(contacts, new Comparator<Contact>() {
@@ -62,19 +62,19 @@ public class MainActivity extends ActionBarActivity {
                 return firstLetterComparison;
             }
         });
-        mListView = (PinnedHeaderListView) findViewById(android.R.id.list);
-        mAdapter = new ContactsAdapter(contacts);
+        myListView = (PinnedHeaderListView) findViewById(android.R.id.list);
+        myAdapter = new ContactsAdapter(contacts);
 
         int pinnedHeaderBackgroundColor = getResources().getColor(getResIdFromAttribute(this, android.R.attr.colorBackground));
-        mAdapter.setPinnedHeaderBackgroundColor(pinnedHeaderBackgroundColor);
-        mAdapter.setPinnedHeaderTextColor(getResources().getColor(R.color.pinned_header_text));
-        mListView.setPinnedHeaderView(mInflater.inflate(R.layout.pinned_header_listview_side_header, mListView, false));
-        mListView.setAdapter(mAdapter);
-        mListView.setOnScrollListener(mAdapter);
-        mListView.setEnableHeaderTransparencyChanges(false);
-        //    mAdapter.getFilter().filter(mQueryText,new FilterListener() ...
+        myAdapter.setPinnedHeaderBackgroundColor(pinnedHeaderBackgroundColor);
+        myAdapter.setPinnedHeaderTextColor(getResources().getColor(R.color.top_bar_color));
+        myListView.setPinnedHeaderView(myInflater.inflate(R.layout.pinned_header_listview_side_header, myListView, false));
+        myListView.setAdapter(myAdapter);
+        myListView.setOnScrollListener(myAdapter);
+        myListView.setEnableHeaderTransparencyChanges(false);
+        //    myAdapter.getFilter().filter(mQueryText,new FilterListener() ...
         //You can also perform operations on selected item by using :
-        //    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() ...
+        //    myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() ...
     }
 
 
@@ -140,7 +140,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mAdapter.mAsyncTaskThreadPool.cancelAllTasks(true);
+        myAdapter.mAsyncTaskThreadPool.cancelAllTasks(true);
     }
 
     private static class Contact {
@@ -171,8 +171,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void performSearch(final String queryText) {
-        mAdapter.getFilter().filter(queryText);
-        mAdapter.setHeaderViewVisible(TextUtils.isEmpty(queryText));
+        myAdapter.getFilter().filter(queryText);
+        myAdapter.setHeaderViewVisible(TextUtils.isEmpty(queryText));
     }
 
     @SuppressWarnings("deprecation")
@@ -197,9 +197,6 @@ public class MainActivity extends ActionBarActivity {
         return true;
     }
 
-    // ////////////////////////////////////////////////////////////
-    // ContactsAdapter //
-    // //////////////////
     private class ContactsAdapter extends SearchablePinnedHeaderListViewAdapter<Contact> {
         private ArrayList<Contact> mContacts;
         private final int CONTACT_PHOTO_IMAGE_SIZE;
@@ -238,7 +235,7 @@ public class MainActivity extends ActionBarActivity {
             final View rootView;
             if (convertView == null) {
                 holder = new ViewHolder();
-                rootView = mInflater.inflate(R.layout.listview_item, parent, false);
+                rootView = myInflater.inflate(R.layout.listview_item, parent, false);
                 holder.friendProfileCircularContactView = (CircularContactView) rootView
                         .findViewById(R.id.listview_item__friendPhotoImageView);
                 holder.friendProfileCircularContactView.getTextView().setTextColor(0xFFffffff);

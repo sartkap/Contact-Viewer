@@ -57,7 +57,7 @@ public class CircularContactView extends ViewSwitcher
     this.mContentSize=contentSize;
     }
 
-  @SuppressWarnings("deprecation")
+
   private void drawContent(final int viewWidth,final int viewHeight)
     {
     ShapeDrawable roundedBackgroundDrawable=null;

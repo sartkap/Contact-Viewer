@@ -4,7 +4,7 @@
           android:id="@+id/header_text"
           style="@style/PinnedHeader"
           android:layout_width="50dp"
-          android:textColor="@color/pinned_header_text"
+          android:textColor="@color/top_bar_color"
           android:layout_height="50dp"
           android:background="@null"
           android:text="A"

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">ListViewVariants</string>
-    <string name="repository_website">See Source Code of App</string>
-    <string name="all_my_repositories">See my work</string>
     <string name="more_info">More info</string>
+    <string name="all_repos">See All My Work</string>
+    <string name="source_code">See Source Code of App</string>
 </resources>

@@ -180,14 +180,12 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(final MenuItem item) {
         String url = null;
         switch (item.getItemId()) {
-            case R.id.menuItem_all_my_apps:
-                url = "https://play.google.com/store/apps/developer?id=AndroidDeveloperLB";
-                break;
+
             case R.id.menuItem_all_my_repositories:
-                url = "https://github.com/AndroidDeveloperLB";
+                url = "https://github.com/sartkap";
                 break;
             case R.id.menuItem_current_repository_website:
-                url = "https://github.com/AndroidDeveloperLB/ListViewVariants";
+                url = "https://github.com/sartkap/Contact-Viewer";
                 break;
         }
         if (url == null)
